@@ -9,7 +9,7 @@ EverGrandeCity_PhoebesRoom_OnWarp:
 	.2byte 0
 
 EverGrandeCity_PhoebesRoom_EventScript_PlayerTurnNorth::
-	turnobject LOCALID_PLAYER, DIR_NORTH
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
 
 EverGrandeCity_PhoebesRoom_OnFrame:
@@ -39,10 +39,18 @@ EverGrandeCity_PhoebesRoom_EventScript_CloseDoor::
 EverGrandeCity_PhoebesRoom_EventScript_Phoebe::
 	lock
 	faceplayer
+	goto_if_set FLAG_IS_CHAMPION, EverGrandeCity_PhoebesRoom_EventScript_Rematch
 	goto_if_set FLAG_DEFEATED_ELITE_4_PHOEBE, EverGrandeCity_PhoebesRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_PhoebesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_PHOEBE, EverGrandeCity_PhoebesRoom_Text_Defeat
+	goto EverGrandeCity_PhoebesRoom_EventScript_Defeated
+	end
+
+EverGrandeCity_PhoebesRoom_EventScript_Rematch::
+	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
+	msgbox EverGrandeCity_PhoebesRoom_Text_IntroSpeechRematch, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_PHOEBE_2, EverGrandeCity_PhoebesRoom_Text_Defeat
 	goto EverGrandeCity_PhoebesRoom_EventScript_Defeated
 	end
 
@@ -60,10 +68,10 @@ EverGrandeCity_PhoebesRoom_EventScript_Defeated::
 
 EverGrandeCity_PhoebesRoom_Text_IntroSpeech:
 	.string "Ahahaha!\p"
-	.string "I'm PHOEBE of the ELITE FOUR.\n"
+	.string "I'm JÉRÉMY of the ELITE FOUR.\n" 
 	.string "I did my training on MT. PYRE.\p"
 	.string "While I trained, I gained the ability\n"
-	.string "to commune with GHOST-type POKéMON.\p"
+	.string "to commune with PSYCHIC-type POKéMON.\p"
 	.string "Yes, the bond I developed with POKéMON\n"
 	.string "is extremely tight.\p"
 	.string "So, come on, just try and see if you can\n"
@@ -81,4 +89,16 @@ EverGrandeCity_PhoebesRoom_Text_PostBattleSpeech:
 	.string "Yup, I'd like to see how far your bond\n"
 	.string "will carry you.\p"
 	.string "Go ahead, move on to the next room.$"
+
+EverGrandeCity_PhoebesRoom_Text_IntroSpeechRematch:
+	.string "Ahahaha!\p"
+	.string "I'm JÉRÉMY of the ELITE FOUR.\n"
+	.string "I did my training on MT. PYRE.\p"
+	.string "While I trained, I gained the ability\n"
+	.string "to commune with PSYCHIC-type POKéMON.\p"
+	.string "Yes, the bond I developed with POKéMON\n"
+	.string "is extremely tight.\p"
+	.string "So, come on, just try and see if you can\n"
+	.string "even inflict damage on my POKéMON!\p"
+	.string "This time I'm even stronger!$"
 

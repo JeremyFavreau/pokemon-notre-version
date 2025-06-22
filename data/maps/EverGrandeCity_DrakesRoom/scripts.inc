@@ -10,7 +10,7 @@ EverGrandeCity_DrakesRoom_OnWarp:
 	.2byte 0
 
 EverGrandeCity_DrakesRoom_EventScript_PlayerTurnNorth::
-	turnobject LOCALID_PLAYER, DIR_NORTH
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
 	end
 
 EverGrandeCity_DrakesRoom_OnFrame:
@@ -40,10 +40,18 @@ EverGrandeCity_DrakesRoom_EventScript_CloseDoor::
 EverGrandeCity_DrakesRoom_EventScript_Drake::
 	lock
 	faceplayer
+	goto_if_set FLAG_IS_CHAMPION, EverGrandeCity_DrakesRoom_EventScript_Rematch
 	goto_if_set FLAG_DEFEATED_ELITE_4_DRAKE, EverGrandeCity_DrakesRoom_EventScript_PostBattleSpeech
 	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
 	msgbox EverGrandeCity_DrakesRoom_Text_IntroSpeech, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_DRAKE, EverGrandeCity_DrakesRoom_Text_Defeat
+	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
+	end
+
+EverGrandeCity_DrakesRoom_EventScript_Rematch::
+	playbgm MUS_ENCOUNTER_ELITE_FOUR, FALSE
+	msgbox EverGrandeCity_DrakesRoom_Text_IntroSpeechRematch, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_DRAKE_2, EverGrandeCity_DrakesRoom_Text_Defeat
 	goto EverGrandeCity_DrakesRoom_EventScript_Defeated
 	end
 
@@ -62,31 +70,91 @@ EverGrandeCity_DrakesRoom_EventScript_Defeated::
 	end
 
 EverGrandeCity_DrakesRoom_Text_IntroSpeech:
-	.string "I am the last of the POKéMON LEAGUE\n"
-	.string "ELITE FOUR, DRAKE the DRAGON master!\p"
-	.string "In their natural state, POKéMON are\n"
-	.string "wild living things. They are free.\p"
-	.string "At times, they hinder us.\n"
-	.string "At times, they help us.\p"
-	.string "For us to battle with POKéMON as\n"
-	.string "partners, do you know what it takes?\p"
-	.string "Do you know what is needed?\p"
-	.string "If you don't, then you will never\n"
-	.string "prevail over me!$"
+	.string "Hey, you. You're finally awake.\p"
+	.string "You were trying to cross the border, right?\p"
+	.string "Walked right into that Imperial\n"
+	.string "ambush, same as us, and that\n"
+	.string "thief over there.\p"
+	.string "Damn you Stormcloaks.\p"
+	.string "Skyrim was fine until you came along.\p"
+	.string "Empire was nice and lazy.\p"
+	.string "If they hadn't been looking for you,\n"
+	.string "I could've stolen that horse\n"
+	.string "and be halfway to Hammerfell.\p"
+	.string "You there. You and me\n"
+	.string "we shouldn't be here.\p"
+	.string "It's these Stormcloaks the Empire wants.\p"
+	.string "We're all brothers and sisters\n"
+	.string "in binds now, thief.\p"
+	.string "Shut up back there!\p"
+	.string "And what's wrong with him, huh?\p"
+	.string "Watch your tongue.\p"
+	.string "You're speaking to Ulfric Stormcloak,\n"
+	.string "the true High King.\p"
+	.string "Ulfric? The Jarl of Windhelm?\n"
+	.string "You're the leader of the rebellion.\p"
+	.string "But if they've captured you...\p"
+	.string "Oh gods, where are they taking us?\p"
+	.string "I don't know where we're going,\n"
+	.string "but Sovngarde awaits.\p"
+	.string "No, this can't be happening.\n"
+	.string "This isn't happening.\p"
+	.string "Hey, what village are you from,\n"
+	.string "horse thief?\p"
+	.string "Why do you care?\n"
+	.string "A Nord's last thoughts should be\n"
+	.string "be of home. Rorikstead. \p"
+	.string "I'm... I'm from Rorikstead.$"
 
 EverGrandeCity_DrakesRoom_Text_Defeat:
 	.string "Superb, it should be said.$"
 
 EverGrandeCity_DrakesRoom_Text_PostBattleSpeech:
-	.string "You deserve every credit for coming\n"
-	.string "this far as a TRAINER of POKéMON.\p"
-	.string "You do seem to know what is needed.\p"
-	.string "Yes, what a TRAINER needs is a\n"
-	.string "virtuous heart.\p"
-	.string "POKéMON touch the good hearts of\n"
-	.string "TRAINERS and learn good from wrong.\p"
-	.string "They touch the good hearts of\n"
-	.string "TRAINERS and grow strong.\p"
-	.string "Go! Go onwards!\n"
-	.string "The CHAMPION is waiting!$"
+	.string "Have you heard of the critically\n"
+	.string "acclaimed MMORPG Final Fantasy XIV?\p"
+	.string "With an expanded free trial\n"
+	.string "which you can play through the\n"
+	.string "entirety of A Real Reborn\p"
+	.string "And the award-winning\n"
+	.string "Heavensward expansion\p"
+	.string "AND Stormblood up to\n"
+	.string "level 70 for free with no\n"
+	.string "restrictions on playtime?$"
 
+EverGrandeCity_DrakesRoom_Text_IntroSpeechRematch:
+	.string "Hey, you. You're finally awake.\p"
+	.string "You were trying to cross the border, right?\p"
+	.string "Walked right into that Imperial\n"
+	.string "ambush, same as us, and that\n"
+	.string "thief over there.\p"
+	.string "Damn you Stormcloaks.\p"
+	.string "Skyrim was fine until you came along.\p"
+	.string "Empire was nice and lazy.\p"
+	.string "If they hadn't been looking for you,\n"
+	.string "I could've stolen that horse\n"
+	.string "and be halfway to Hammerfell.\p"
+	.string "You there. You and me\n"
+	.string "we shouldn't be here.\p"
+	.string "It's these Stormcloaks the Empire wants.\p"
+	.string "We're all brothers and sisters\n"
+	.string "in binds now, thief.\p"
+	.string "Shut up back there!\p"
+	.string "And what's wrong with him, huh?\p"
+	.string "Watch your tongue.\p"
+	.string "You're speaking to Ulfric Stormcloak,\n"
+	.string "the true High King.\p"
+	.string "Ulfric? The Jarl of Windhelm?\n"
+	.string "You're the leader of the rebellion.\p"
+	.string "But if they've captured you...\p"
+	.string "Oh gods, where are they taking us?\p"
+	.string "I don't know where we're going,\n"
+	.string "but Sovngarde awaits.\p"
+	.string "No, this can't be happening.\n"
+	.string "This isn't happening.\p"
+	.string "Hey, what village are you from,\n"
+	.string "horse thief?\p"
+	.string "Why do you care?\n"
+	.string "A Nord's last thoughts should be\n"
+	.string "be of home. Rorikstead. \p"
+	.string "I'm... I'm from Rorikstead.\p"
+	.string "This time I'm even more prepared!$"
