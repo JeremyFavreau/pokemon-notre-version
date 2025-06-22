@@ -2962,6 +2962,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .formChangeTable = sPikachuFormChangeTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_RAICHU},
                                 {EVO_NONE, 0, SPECIES_RAICHU_ALOLA}),
+        .randomizerMode = MON_RANDOMIZER_RANDOM_FORM,
     },
 
 #if P_COSPLAY_PIKACHU_FORMS
@@ -3229,6 +3230,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sPikachuLevelUpLearnset,
         .teachableLearnset = sPikachuTeachableLearnset,
         .formSpeciesIdTable = sPikachuFormSpeciesIdTable,
+        .randomizerMode = MON_RANDOMIZER_INVALID,
     },
 
     [SPECIES_PIKACHU_LIBRE] =
