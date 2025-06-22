@@ -1,0 +1,30 @@
+# Assembly files
+*.inc
+*.s
+*.asm
+
+# Binary files
+*.bin
+*.o
+*.obj
+
+# Game-specific files
+*.gba
+*.gbc
+*.gb
+
+# Build artifacts
+build/
+obj/
+*.elf
+
+# Data files that should maintain specific formatting
+data/maps/**/*.inc
+data/scripts/**/*.inc
+data/trainers/**/*.inc
+
+# Other files that shouldn't be formatted
+*.json
+*.xml
+*.yaml
+*.yml 

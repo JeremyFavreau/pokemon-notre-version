@@ -70,6 +70,7 @@
 #include "rtc.h"
 #include "fake_rtc.h"
 #include "save.h"
+#include "randomizer.h"
 
 // *******************************
 enum DebugMenu
@@ -98,6 +99,9 @@ enum UtilDebugMenu
     DEBUG_UTIL_MENU_ITEM_CHEAT,
     DEBUG_UTIL_MENU_ITEM_BERRY_FUNCTIONS,
     DEBUG_UTIL_MENU_ITEM_EWRAM_COUNTERS,
+    #if RANDOMIZER_AVAILABLE == TRUE
+    DEBUG_UTIL_MENU_ITEM_RANDOMIZER,
+    #endif
     DEBUG_UTIL_MENU_ITEM_STEVEN_MULTI // Please keep this at the bottom <3
 };
 
