@@ -2832,7 +2832,7 @@ const struct Item gItemsInfo[] =
             "Sweet honey that\n"
             "attracts wild\n"
             "Pokémon when used."),
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Honey,
         .flingPower = 30,

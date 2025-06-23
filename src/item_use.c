@@ -228,23 +228,32 @@ STATIC_ASSERT(I_EXP_SHARE_ITEM < GEN_6 || I_EXP_SHARE_FLAG > TEMP_FLAGS_END, You
 void ItemUseOutOfBattle_ExpShare(u8 taskId)
 {
 #if I_EXP_SHARE_ITEM >= GEN_6
-    if (IsGen6ExpShareEnabled())
+    if (VarGet(VAR_EXP_CAP_TYPE) == 0)
     {
         PlaySE(SE_PC_OFF);
         if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
-            DisplayItemMessageOnField(taskId, gText_ExpShareOff, Task_CloseCantUseKeyItemMessage);
+        {
+            DisplayItemMessageOnField(taskId, gText_ExpShareOn, Task_CloseCantUseKeyItemMessage);
+        }
         else
-            DisplayItemMessage(taskId, FONT_NORMAL, gText_ExpShareOff, CloseItemMessage);
+        {
+            VarSet(VAR_EXP_CAP_TYPE, 2);
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_ExpShareOn, CloseItemMessage);
+        }
     }
     else
     {
         PlaySE(SE_EXP_MAX);
         if (!gTasks[taskId].data[2]) // to account for pressing select in the overworld
-            DisplayItemMessageOnField(taskId, gText_ExpShareOn, Task_CloseCantUseKeyItemMessage);
+        {
+            DisplayItemMessageOnField(taskId, gText_ExpShareOff, Task_CloseCantUseKeyItemMessage);
+        }
         else
-            DisplayItemMessage(taskId, FONT_NORMAL, gText_ExpShareOn, CloseItemMessage);
+        {
+            VarSet(VAR_EXP_CAP_TYPE, 0);
+            DisplayItemMessage(taskId, FONT_NORMAL, gText_ExpShareOff, CloseItemMessage);
+        }
     }
-    FlagToggle(I_EXP_SHARE_FLAG);
 #else
     DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
 #endif
@@ -1472,10 +1481,23 @@ static void ItemUseOnFieldCB_Honey(u8 taskId)
 
 void ItemUseOutOfBattle_Honey(u8 taskId)
 {
-    sItemUseOnFieldCB = ItemUseOnFieldCB_Honey;
-    gFieldCallback = FieldCB_UseItemOnField;
-    gBagMenu->newScreenCallback = CB2_ReturnToField;
-    Task_FadeAndCloseBagMenu(taskId);
+    // sItemUseOnFieldCB = ItemUseOnFieldCB_Honey;
+    // gFieldCallback = FieldCB_UseItemOnField;
+    // gBagMenu->newScreenCallback = CB2_ReturnToField;
+    // Task_FadeAndCloseBagMenu(taskId);
+
+    if (VarGet(VAR_SHOW_EFFECTIVENESS) == 1)
+    {
+        PlaySE(SE_PC_OFF);
+        VarSet(VAR_SHOW_EFFECTIVENESS, 0);
+        DisplayItemMessage(taskId, FONT_NORMAL, gText_TypeEffectivenessOff, CloseItemMessage);
+    }
+    else
+    {
+        PlaySE(SE_EXP_MAX);
+        VarSet(VAR_SHOW_EFFECTIVENESS, 1);
+        DisplayItemMessage(taskId, FONT_NORMAL, gText_TypeEffectivenessOn, CloseItemMessage);
+    }
 }
 
 void ItemUseOutOfBattle_CannotUse(u8 taskId)

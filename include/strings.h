@@ -2407,6 +2407,8 @@ extern const u8 gText_TellHimTheWords[];
 // Exp. Share
 extern const u8 gText_ExpShareOn[];
 extern const u8 gText_ExpShareOff[];
+extern const u8 gText_TypeEffectivenessOn[];
+extern const u8 gText_TypeEffectivenessOff[];
 
 extern const u8 gText_BasePointsResetToZero[];
 
