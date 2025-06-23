@@ -1683,8 +1683,8 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
     if (gFieldStatuses & STATUS_FIELD_GRAVITY)
         calc = (calc * 5) / 3; // 1.66 Gravity acc boost
 
-    if (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerDef) == AFFECTION_FIVE_HEARTS)
-        calc = (calc * 90) / 100;
+    // if (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerDef) == AFFECTION_FIVE_HEARTS)
+    //     calc = (calc * 90) / 100;
 
     if (HasWeatherEffect() && gBattleWeather & B_WEATHER_FOG)
         calc = (calc * 60) / 100; // modified by 3/5
@@ -1955,7 +1955,7 @@ s32 CalcCritChanceStage(u32 battlerAtk, u32 battlerDef, u32 move, bool32 recordA
                     + 1 * ((gBattleMons[battlerAtk].status2 & STATUS2_DRAGON_CHEER) != 0)
                     + GetMoveCriticalHitStage(move)
                     + GetHoldEffectCritChanceIncrease(battlerAtk, holdEffectAtk)
-                    + 2 * (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerAtk) == AFFECTION_FIVE_HEARTS)
+                    // + 2 * (B_AFFECTION_MECHANICS == TRUE && GetBattlerAffectionHearts(battlerAtk) == AFFECTION_FIVE_HEARTS)
                     + (abilityAtk == ABILITY_SUPER_LUCK)
                     + gBattleStruct->bonusCritStages[gBattlerAttacker];
 
@@ -2255,9 +2255,7 @@ static void Cmd_adjustdamage(void)
         }
         else if (B_AFFECTION_MECHANICS == TRUE && IsOnPlayerSide(battlerDef) && affectionScore >= AFFECTION_THREE_HEARTS)
         {
-            if ((affectionScore == AFFECTION_FIVE_HEARTS && rand < 20)
-             || (affectionScore == AFFECTION_FOUR_HEARTS && rand < 15)
-             || (affectionScore == AFFECTION_THREE_HEARTS && rand < 10))
+            if (affectionScore == AFFECTION_FIVE_HEARTS && rand < 5)
             {
                 enduredHit = TRUE;
                 gBattleStruct->moveResultFlags[battlerDef] |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
@@ -12963,9 +12961,7 @@ static void Cmd_tryKO(void)
     }
     else if (B_AFFECTION_MECHANICS == TRUE && IsOnPlayerSide(gBattlerTarget) && affectionScore >= AFFECTION_THREE_HEARTS)
     {
-        if ((affectionScore == AFFECTION_FIVE_HEARTS && rand < 20)
-         || (affectionScore == AFFECTION_FOUR_HEARTS && rand < 15)
-         || (affectionScore == AFFECTION_THREE_HEARTS && rand < 10))
+        if (affectionScore == AFFECTION_FIVE_HEARTS && rand < 5)
             endured = AFFECTION_ENDURED;
     }
 
@@ -16975,8 +16971,8 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
         *expAmount = (*expAmount * 150) / 100;
     if (B_UNEVOLVED_EXP_MULTIPLIER >= GEN_6 && IsMonPastEvolutionLevel(&gPlayerParty[expGetterMonId]))
         *expAmount = (*expAmount * 4915) / 4096;
-    if (B_AFFECTION_MECHANICS == TRUE && GetMonAffectionHearts(&gPlayerParty[expGetterMonId]) >= AFFECTION_FOUR_HEARTS)
-        *expAmount = (*expAmount * 4915) / 4096;
+    // if (B_AFFECTION_MECHANICS == TRUE && GetMonAffectionHearts(&gPlayerParty[expGetterMonId]) >= AFFECTION_FOUR_HEARTS)
+    //     *expAmount = (*expAmount * 4915) / 4096;
     if (CheckBagHasItem(ITEM_EXP_CHARM, 1)) //is also for other exp boosting Powers if/when implemented
         *expAmount = (*expAmount * 150) / 100;
 
