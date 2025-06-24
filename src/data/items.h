@@ -14459,7 +14459,7 @@ const struct Item gItemsInfo[] =
     [ITEM_GIMMIGHOUL_COIN] =
     {
         .name = _("Gimmighoul Coin"),
-        .price = 400,
+        .price = 0,
         .description = COMPOUND_STRING(
             "Gimmighoul hoard\n"
             "and treasure these\n"
