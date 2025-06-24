@@ -315,8 +315,8 @@ static void GetGroupRange(u16 group, enum RandomizerSpeciesMode mode, u16 *resul
         // Choose a 10.24% range around the base BST.
         s32 base, minScaled, maxScaled;
         base = group * 1024;
-        minScaled = (base - group * 100) / 1024;
-        maxScaled = (base + group * 100) / 1024;
+        minScaled = (base - group * 154) / 1024;
+        maxScaled = (base + group * 154) / 1024;
         *resultMin = (u16)max(minScaled, 0);
         *resultMax =(u16)min(maxScaled, GROUP_INVALID-1);
     }
