@@ -89,7 +89,7 @@ u32 GetItemSellPrice(u32 itemId);
 /* Expands to:
  * enum
  * {
- *   ITEM_TM_FOCUS_PUNCH,
+ *   ITEM_TM_TAKE_DOWN,
  *   ...
  *   ITEM_HM_CUT,
  *   ...
@@ -103,6 +103,9 @@ enum
 
     ENUM_HM_START_ = ITEM_HM01 - 1,
     FOREACH_HM(ENUM_HM)
+
+    ENUM_TM_ADDED_START_ = ITEM_TM101 - 1,
+    FOREACH_TM_ADDED(ENUM_TM)
 };
 #undef ENUM_TM
 #undef ENUM_HM

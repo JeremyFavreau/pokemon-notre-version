@@ -319,6 +319,18 @@ EverGrandeCity_PokemonLeague_1F_Pokemart:
 	.2byte ITEM_TM227
 	.2byte ITEM_TM228
 	.2byte ITEM_TM229
+	.2byte ITEM_TM230
+	.2byte ITEM_TM231
+	.2byte ITEM_TM232
+	.2byte ITEM_TM233
+	.2byte ITEM_TM234
+	.2byte ITEM_TM235
+	.2byte ITEM_TM236
+	.2byte ITEM_TM237
+	.2byte ITEM_TM238
+	.2byte ITEM_TM239
+	.2byte ITEM_TM240
+	.2byte ITEM_TM241
 	pokemartlistend
 
 	.align 2
@@ -655,6 +667,18 @@ EverGrandeCity_PokemonLeague_1F_Pokemart_Extended:
 	.2byte ITEM_TM227
 	.2byte ITEM_TM228
 	.2byte ITEM_TM229
+	.2byte ITEM_TM230
+	.2byte ITEM_TM231
+	.2byte ITEM_TM232
+	.2byte ITEM_TM233
+	.2byte ITEM_TM234
+	.2byte ITEM_TM235
+	.2byte ITEM_TM236
+	.2byte ITEM_TM237
+	.2byte ITEM_TM238
+	.2byte ITEM_TM239
+	.2byte ITEM_TM240
+	.2byte ITEM_TM241
 	pokemartlistend
 
 @ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped

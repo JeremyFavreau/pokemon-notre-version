@@ -1122,13 +1122,25 @@
 #define ITEM_TM227 954
 #define ITEM_TM228 955
 #define ITEM_TM229 956
+#define ITEM_TM230 957
+#define ITEM_TM231 958
+#define ITEM_TM232 959
+#define ITEM_TM233 960
+#define ITEM_TM234 961
+#define ITEM_TM235 962
+#define ITEM_TM236 963
+#define ITEM_TM237 964
+#define ITEM_TM238 965
+#define ITEM_TM239 966
+#define ITEM_TM240 967
+#define ITEM_TM241 968
 
-#define ITEM_STRANGE_BALL 957
+#define ITEM_STRANGE_BALL 969
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 958
+#define ITEMS_COUNT 970
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
