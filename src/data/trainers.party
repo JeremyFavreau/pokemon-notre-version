@@ -5079,7 +5079,7 @@ Modest Nature
 
 Dragapult @ Choice Specs  
 Ability: Clear Body
-Level: 75  
+Level: 74  
 Modest Nature
 - Draco Meteor
 - Hex
@@ -5095,7 +5095,7 @@ Adamant Nature
 - Drain Punch
 - Substitute 
 
-Blacephalon @ Choice Scarf
+Blacephalon @ Sitrus Berry
 Ability: Beast Boost
 Level: 73  
 Timid Nature 
@@ -6736,12 +6736,57 @@ Mugshot: Yellow
 
 Garchomp @ Rocky Helmet
 Ability: Rough Skin
-Level: 56
+Level: 74
 Jolly Nature
 - Earthquake
 - Outrage
-- Spikes
+- Poison Jab
 - Stealth Rock
+
+Kyurem-White @ Power Herb
+Ability: Turboblaze
+Level: 75
+Timid Nature
+- Fusion Flare
+- Ice Burn
+- Dragon Pulse
+- Flash Cannon
+
+Salamence @ Heavy-Duty Boots
+Ability: Moxie
+Level: 73
+Adamant Nature
+- Dragon Dance
+- Dual Wingbeat
+- Earthquake
+- Outrage
+
+Charizard-Mega-X @ Salac Berry
+Ability: Tough Claws
+Level: 74
+Adamant Nature
+- Earthquake
+- Dragon Claw
+- Flare Blitz
+- Roost
+
+Archaludon @ Assault Vest
+Ability: Stamina
+Level: 74
+Timid Nature
+- Body Press
+- Flash Cannon
+- Rest
+- Dragon Pulse
+
+Palkia @ Lustrous Orb
+Ability: Pressure
+Level: 75
+Timid Nature
+- Surf
+- Spacial Rend
+- Thunderbolt
+- Ice Beam
 
 === TRAINER_ANDREW ===
 Name: ANDREW
